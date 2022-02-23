@@ -1,0 +1,49 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+#      ddl-auto: create
+    open-in-view: true # 연관관계 매핑 시 true 혹은 작성 안함
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        user_sql_comment: true
+    h2:
+    console:
+      enabled: true
+#  security:
+#    user:
+#      name: username
+#      password: password
+  messages:
+    basename: messages
+    fallback-to-system-locale: false
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+#logging:
+#  level:
+#    org.springframework: DEBUG
+
+#Hal-Explorer 설정
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+
